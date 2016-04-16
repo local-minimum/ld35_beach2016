@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: 3a13321be24b6b64ca799601cabae932
+timeCreated: 1460831025
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: homunculis
+    21300002: homo_select_left_arm
+    21300004: homo_select_torso
+    21300006: homo_select_right_arm
+    21300008: set_done
+    21300010: ui_linker
+    21300012: homo_select_left_leg
+    21300014: homo_select_right_leg
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: homunculis
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39
+        width: 292
+        height: 421
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 79, y: 210.5}
+        - {x: -44, y: 210.5}
+        - {x: -48, y: 204.5}
+        - {x: -54, y: 154.5}
+        - {x: -146, y: 97.5}
+        - {x: -146, y: 85.5}
+        - {x: -104, y: 31.5}
+        - {x: -94, y: 33.5}
+        - {x: -69, y: 42.5}
+        - {x: -108, y: -198.5}
+        - {x: -52, y: -190.5}
+        - {x: -48, y: -183.5}
+        - {x: -27, y: -129.5}
+        - {x: 20, y: -186.5}
+        - {x: 25, y: -191.5}
+        - {x: 67, y: -210.5}
+        - {x: 77, y: -210.5}
+        - {x: 87, y: -204.5}
+        - {x: 146, y: 30.5}
+        - {x: 146, y: 139.5}
+    - name: homo_select_left_arm
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 249
+        width: 159
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -79.5, y: 70}
+        - {x: -79.5, y: 22}
+        - {x: 0.5, y: -70}
+        - {x: 27.5, y: -70}
+        - {x: 76.5, y: -61}
+        - {x: 79.5, y: -58}
+        - {x: 79.5, y: 70}
+    - name: homo_select_torso
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 218
+        width: 80
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 74}
+        - {x: -40, y: 73}
+        - {x: -40, y: -74}
+        - {x: 40, y: -74}
+        - {x: 40, y: 74}
+    - name: homo_select_right_arm
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 241
+        width: 172
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26, y: 61.5}
+        - {x: -3, y: 61.5}
+        - {x: -86, y: 37.5}
+        - {x: -86, y: -37.5}
+        - {x: -64, y: -41.5}
+        - {x: -36, y: -42.5}
+        - {x: -17, y: -42.5}
+        - {x: 62, y: -2.5}
+        - {x: 62, y: 2.5}
+        - {x: 61, y: 5.5}
+    - name: set_done
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 326
+        width: 152
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 17, y: 14, z: 13, w: 10}
+      outline:
+      - - {x: -72, y: 27.5}
+        - {x: -76, y: 23.5}
+        - {x: -76, y: -23.5}
+        - {x: -72, y: -27.5}
+        - {x: 76, y: -27.5}
+        - {x: 76, y: 27.5}
+    - name: ui_linker
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 221
+        width: 68
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33, y: 41.5}
+        - {x: -34, y: 39.5}
+        - {x: -34, y: 27.5}
+        - {x: 22, y: -41.5}
+        - {x: 34, y: -41.5}
+        - {x: 34, y: -29.5}
+        - {x: -24, y: 41.5}
+    - name: homo_select_left_leg
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 26
+        width: 135
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.5, y: 96.5}
+        - {x: -67.5, y: 16.5}
+        - {x: -67.5, y: -96.5}
+        - {x: -7.5, y: -96.5}
+        - {x: 34.5, y: -93.5}
+        - {x: 67.5, y: 41.5}
+        - {x: 67.5, y: 65.5}
+        - {x: 54.5, y: 96.5}
+    - name: homo_select_right_leg
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 0
+        width: 130
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: -107}
+        - {x: 38, y: -107}
+        - {x: 65, y: -62}
+        - {x: 65, y: -27}
+        - {x: -4, y: 107}
+        - {x: -65, y: 107}
+        - {x: -65, y: -54}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

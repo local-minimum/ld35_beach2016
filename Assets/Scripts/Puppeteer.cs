@@ -16,7 +16,7 @@ public class Puppeteer : MonoBehaviour {
 	[SerializeField] float decay = 3f;
 
 	void Update () {
-		position = Mathf.Clamp01 (position - decay * Time.deltaTime);
+		position = Mathf.Clamp01 (position - decay * Time.deltaTime);		
 		stringAnchor.position = anchorPos;
 
 	}
