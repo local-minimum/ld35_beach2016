@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="123.64865mm"
+   height="80.110794mm"
+   viewBox="0 0 438.12515 283.85714"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   inkscape:export-filename="D:\martin\Documents\Unity Games\LD35_Beach2016\Assets\Sprites\Placeholders\bodyparts.png"
+   inkscape:export-xdpi="178.31799"
+   inkscape:export-ydpi="178.31799"
+   sodipodi:docname="body.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="529.12669"
+     inkscape:cy="-223.70406"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-16.660572,-29.005062)">
+    <circle
+       style="opacity:0.97000002;fill:#80ffe4;fill-opacity:0.47843137;stroke:#892ca0;stroke-width:1;stroke-miterlimit:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.97254902"
+       id="path4136"
+       cx="87.142853"
+       cy="78.076492"
+       r="27.142857"
+       inkscape:export-xdpi="178.31799"
+       inkscape:export-ydpi="178.31799" />
+    <rect
+       style="opacity:0.97000002;fill:#80ffe4;fill-opacity:0.47843137;stroke:#892ca0;stroke-width:1;stroke-miterlimit:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.97254902"
+       id="rect4138"
+       width="18.571428"
+       height="111.42857"
+       x="158.57143"
+       y="33.790775"
+       inkscape:export-xdpi="178.31799"
+       inkscape:export-ydpi="178.31799" />
+    <rect
+       style="opacity:0.97000002;fill:#80ffe4;fill-opacity:0.47843137;stroke:#892ca0;stroke-width:1;stroke-miterlimit:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.97254902"
+       id="rect4140"
+       width="68.571426"
+       height="22.857143"
+       x="200"
+       y="66.647919"
+       inkscape:export-xdpi="178.31799"
+       inkscape:export-ydpi="178.31799" />
+    <rect
+       style="opacity:0.97000002;fill:#80ffe4;fill-opacity:0.47843137;stroke:#892ca0;stroke-width:1;stroke-miterlimit:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.97254902"
+       id="rect4142"
+       width="120"
+       height="151.42857"
+       x="334.28571"
+       y="29.505062"
+       inkscape:export-xdpi="178.31799"
+       inkscape:export-ydpi="178.31799" />
+    <path
+       style="opacity:0.97000002;fill:#80ffe4;fill-opacity:0.47843137;stroke:#892ca0;stroke-width:1;stroke-miterlimit:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.97254902"
+       d="m 58.57142,135.21935 42.85714,0 35.71429,151.42858 -120.000001,0 z"
+       id="rect4144"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-xdpi="178.31799"
+       inkscape:export-ydpi="178.31799" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4147"
+       d="m 215.71427,312.36221 42.85715,0 35.71429,-151.42858 -120.00001,0 z"
+       style="opacity:0.97000002;fill:#80ffe4;fill-opacity:0.47843137;stroke:#892ca0;stroke-width:1;stroke-miterlimit:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.97254902"
+       inkscape:export-xdpi="178.31799"
+       inkscape:export-ydpi="178.31799" />
+  </g>
+</svg>

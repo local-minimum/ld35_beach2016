@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: RhythemLayer
+    uniqueID: 146334509
+    locked: 0
+  - name: Ads
+    uniqueID: 766337265
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: OntopUI
+    uniqueID: 2865075495
     locked: 0
