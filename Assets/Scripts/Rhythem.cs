@@ -11,7 +11,6 @@ public class Rhythem : MonoBehaviour {
 	[SerializeField] public int scaleFactor = 1;
 
 	Exercise exercise;
-	AudioSource speaker;
 
 	int beat;
 

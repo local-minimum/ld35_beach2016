@@ -11,6 +11,12 @@ public class RhythemChannel : MonoBehaviour {
 
 	[SerializeField] RhythemIcon template;
 
+	public AudioSource speaker;
+	public Sprite iconImage;
+
+	public Color32 beatColor;
+	public Color32 offBeatColor;
+
 	List<RhythemIcon> icons = new List<RhythemIcon>();
 
 	static float fallDuration = 3f;
