@@ -89,7 +89,9 @@
        inkscape:export-ydpi="233.95233" />
     <g
        id="g5263"
-       transform="translate(-12.121831,-13.131983)">
+       transform="translate(-12.121831,-13.131983)"
+       inkscape:export-xdpi="228.75407"
+       inkscape:export-ydpi="228.75407">
       <ellipse
          ry="17.172594"
          rx="14.647212"
@@ -114,35 +116,45 @@
          style="fill:#ffffff;fill-opacity:0;fill-rule:evenodd;stroke:#3e3ece;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.98715413" />
     </g>
     <path
-       style="fill:#fe9bda;fill-rule:evenodd;stroke:#e600da;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.50988144;fill-opacity:0.92094862"
-       d="m 291.05586,212.92544 0,25.25381 31.37565,10.10153 33.33503,-22.22336 -26.26396,-23.23351 -20.20305,14.14214 z"
+       style="fill:#fe9bda;fill-opacity:0.92094864;fill-rule:evenodd;stroke:#e600da;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.50988141"
+       d="m 291.05586,212.92544 0,25.25381 24.30458,2.02031 30.30457,-15.15229 -16.16243,-22.22336 -20.20305,14.14214 z"
        id="path5269"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-xdpi="228.75407"
+       inkscape:export-ydpi="228.75407" />
     <path
        style="fill:#fe9bda;fill-rule:evenodd;stroke:#e600da;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.50988144;fill-opacity:0.92094862"
        d="m 239.90358,210.90513 -1.01016,28.28428 -25.31472,6.06091 -33.33504,-38.3858 25.25382,-14.14213 18.18274,21.2132 z"
        id="path5271"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-xdpi="228.75407"
+       inkscape:export-ydpi="228.75407" />
     <path
        style="fill:#fe9bda;fill-rule:evenodd;stroke:#e600da;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.50988144;fill-opacity:0.92094862"
        d="m 282.14724,201.81376 -29.33504,1.01015 0,54.54824 29.33504,0 z"
        id="path5273"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-xdpi="228.75407"
+       inkscape:export-ydpi="228.75407" />
     <path
        style="fill:#fe9bda;fill-rule:evenodd;stroke:#e600da;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.50988144;fill-opacity:0.92094862"
        d="m 226.83251,260.44322 -14.14214,46.42641 -21.2132,5.05076 1.01015,21.2132 35.35534,-4.04061 14.14214,-53.49747 z"
        id="path5275"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-xdpi="228.75407"
+       inkscape:export-ydpi="228.75407" />
     <path
        style="fill:#fe9bda;fill-rule:evenodd;stroke:#e600da;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.50988144;fill-opacity:0.92094862"
        d="m 294.97464,278.62597 17.1726,-16.16245 6.06091,48.44672 25.25382,8.08122 -14.14214,24.24366 -29.29442,-16.16244 z"
        id="path5277"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccc" />
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-xdpi="228.75407"
+       inkscape:export-ydpi="228.75407" />
     <rect
        style="opacity:0.97000002;fill:#fe9bda;fill-opacity:0.92094864;stroke:#e600da;stroke-width:2;stroke-miterlimit:1;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.50988141"
        id="rect5279"
@@ -151,11 +163,15 @@
        x="390.92905"
        y="195.75285"
        rx="3.0357101"
-       ry="3.2142899" />
+       ry="3.2142899"
+       inkscape:export-xdpi="228.75407"
+       inkscape:export-ydpi="228.75407" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#e800dc;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.48627451"
        d="M 453.55849,256.362 429.31483,226.05742"
        id="path5281"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="228.75407"
+       inkscape:export-ydpi="228.75407" />
   </g>
 </svg>
