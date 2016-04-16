@@ -7,8 +7,11 @@ public class BodyPartProgressUI : MonoBehaviour {
 	[SerializeField] Image[] progressImages;
 
 	[SerializeField] Image idealIcon;
+	[SerializeField] Image bodyPartIcon;
 
-	[SerializeField] Sprite[] selectedIdeals;
+	[SerializeField] Sprite[] bodyPartIcons;
+
+	[SerializeField] Sprite[] idealIcons;
 
 	[SerializeField] Body body;
 
@@ -17,6 +20,7 @@ public class BodyPartProgressUI : MonoBehaviour {
 	[SerializeField] Color32 hiddenColor;
 
 	[SerializeField] Image panelImage;
+
 
 	void OnEnable() {
 		SetBodyPartSelector.OnBodyPartSelection += SetBodyPartSelector_OnBodyPartSelection;
@@ -31,7 +35,9 @@ public class BodyPartProgressUI : MonoBehaviour {
 		if (!body.HasBeenExercised (part)) {
 			panelImage.color = hiddenColor;
 		} else {
-			idealIcon.sprite = selectedIdeals [part];
+			bodyPartIcon.sprite = bodyPartIcons [part];
+			idealIcon.sprite = idealIcons [body.GetPathSelected(part)];
+
 			var curLvl = body.CurrentLevel (part);
 	
 			for (int i = 0; i < progressImages.Length; i++)
