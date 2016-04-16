@@ -19,6 +19,7 @@ public class SetSelectionUI : MonoBehaviour {
 
 	public void HideContents() {
 		panelImage.color = hiddenColor;
+		body.Play ();
 	}
 
 	public void UndoSelect() {
@@ -39,6 +40,7 @@ public class SetSelectionUI : MonoBehaviour {
 
 	void Start() {
 		Body_OnBodyPartSetEvent (body);
+		body.ClearBodyParts ();
 	}
 
 	void Body_OnBodyPartSetEvent (Body body)

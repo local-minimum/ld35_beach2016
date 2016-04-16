@@ -5,14 +5,16 @@ public delegate void BodyPartSetEvent(Body body);
 
 public class Body : MonoBehaviour {
 
+	[SerializeField] Exercise exercise;
+
 	public static event BodyPartSetEvent OnBodyPartSetEvent;
 
 	int[] exerciseLevels = new int[5] {0, 0, 0, 0, 0};
 	int[] pathSelections = new int[5] {0, 1, 2, 3, 4};
 
-	List<int> partsInCurrentSet = new List<int>();
+	[HideInInspector] public List<int> partsInCurrentSet = new List<int>();
 
-	int partsInSet = 3;
+	int partsInSet = 2;
 
 	void OnEnable() {
 		SetBodyPartSelector.OnBodyPartSelection += SetBodyPartSelector_OnBodyPartSelection;
@@ -60,6 +62,18 @@ public class Body : MonoBehaviour {
 		if (OnBodyPartSetEvent != null)
 			OnBodyPartSetEvent (this);
 		return part;
+	}
+
+	public void ClearBodyParts() {
+		partsInCurrentSet.Clear ();
+		if (OnBodyPartSetEvent != null)
+			OnBodyPartSetEvent (this);
+
+	}
+
+	public void Play() {
+
+		exercise.Play ();
 	}
 
 	public bool EnoughParts {

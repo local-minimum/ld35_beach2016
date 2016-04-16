@@ -23,7 +23,6 @@ public class SetBodyPartSelector : MonoBehaviour {
 		if (!allowClick)
 			return;
 		
-		btn.interactable = false;
 		if (OnBodyPartSelection != null)
 			OnBodyPartSelection (bodyPartIndex, EventType.Select);
 	}
@@ -50,6 +49,7 @@ public class SetBodyPartSelector : MonoBehaviour {
 
 	void Body_OnBodyPartSetEvent (Body body)
 	{	
+		btn.interactable = !body.partsInCurrentSet.Contains (bodyPartIndex);
 		allowClick = !body.EnoughParts;
 	}
 

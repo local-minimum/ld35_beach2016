@@ -11,11 +11,13 @@ public class SetBodyPartPath : MonoBehaviour {
 	[SerializeField] Color32 activeColor;
 
 	[SerializeField] Color32 hiddenColor;
+	[SerializeField] Toggle[] toggles;
 
 	[SerializeField] Image img;
+	bool settingUp = false;
 
 	public void SetPath(int path) {
-		if (selectedBodyPart >= 0) {
+		if (selectedBodyPart >= 0 && !settingUp) {
 			body.SetPath (selectedBodyPart, path);
 			selectedBodyPart = -1;
 			StartCoroutine (DelayHidden ());
@@ -40,7 +42,13 @@ public class SetBodyPartPath : MonoBehaviour {
 	{
 		if (eventType == EventType.Select && !body.HasBeenExercised(part)) {
 			selectedBodyPart = part;
+			int path = body.GetPathSelected (part) - 1;
+			if (path < 0)
+				path = Random.Range (0, toggles.Length);			
+			settingUp = true;
+			toggles [path].isOn = true;
 			img.color = activeColor;
+			settingUp = false;
 		}
 	}
 }
