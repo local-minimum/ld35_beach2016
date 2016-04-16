@@ -2,8 +2,11 @@
 using System.Collections;
 using UnityEngine.UI;
 
+public delegate void PressEvent();
 
 public class SlotButton : MonoBehaviour {
+
+	public event PressEvent OnPressEvent;
 
 	[SerializeField] KeyCode button;
 	Image img;
@@ -27,10 +30,13 @@ public class SlotButton : MonoBehaviour {
 	}
 	
 	void Update () {
+		
 		if (track.enabled) {
 			textField.color = activeColor;
 			if (Input.GetKeyDown (button)) {
 				img.color = pressedColor;
+				if (OnPressEvent != null)
+					OnPressEvent ();
 			} else {
 				img.color = Color32.Lerp (img.color, activeColor, Time.deltaTime * colorAttack);
 			}

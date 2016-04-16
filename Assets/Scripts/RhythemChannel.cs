@@ -6,20 +6,25 @@ public class RhythemChannel : MonoBehaviour {
 	[SerializeField] Transform dropSource;
 
 	[SerializeField] Transform failTarget;
+	[SerializeField] Transform hitTarget;
+	public Rhythem rhythem;
 
-	[SerializeField] Rhythem rhythem;
+	[SerializeField] SlotButton button;
 
 	[SerializeField] RhythemIcon template;
 
 	public bool flipX;
 	public AudioSource speaker;
 	public Sprite iconImage;
-
+	public bool autoPlay;
 	public Color32 beatColor;
 	public Color32 offBeatColor;
 
 	List<RhythemIcon> icons = new List<RhythemIcon>();
 	int nextFree = 0;
+	float hitProgress = 1;
+
+	[SerializeField] float hitTolerance = 0.05f;
 
 	static float fallDuration = 1.5f;
 
@@ -33,12 +38,34 @@ public class RhythemChannel : MonoBehaviour {
 		}
 	}
 
-	void OnEnable() {
-		rhythem.OnTrackEvent += Rhythem_OnTrackEvent;
+	public bool IsAutoHit(float progress) {
+		return autoPlay && Mathf.Abs (progress - hitProgress) < hitTolerance;
 	}
 
+	void Start() {
+		hitProgress = (hitTarget.position - dropSource.position).magnitude / (failTarget.position - dropSource.position).magnitude;
+	}
+
+	void OnEnable() {
+		rhythem.OnTrackEvent += Rhythem_OnTrackEvent;
+		button.OnPressEvent += Button_OnPressEvent;
+	}
+		
 	void OnDisable() {
 		rhythem.OnTrackEvent -= Rhythem_OnTrackEvent;
+		button.OnPressEvent -= Button_OnPressEvent;
+	}
+
+	void Button_OnPressEvent ()
+	{
+		for (int i = 0, l = icons.Count; i < l; i++) {
+			if (icons [i].isABeat && Mathf.Abs (icons [i].progress - hitProgress) < hitTolerance) {
+				icons [i].Hit ();
+				return;
+			}
+		}
+
+		//TODO: Missed.. punsh?
 	}
 
 	void Rhythem_OnTrackEvent (AudioClip clip)
