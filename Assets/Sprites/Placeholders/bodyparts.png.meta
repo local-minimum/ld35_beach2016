@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 91346708834b5ed4f9d4b5ff55f7925a
-timeCreated: 1460792804
+timeCreated: 1460795999
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -63,18 +63,18 @@ TextureImporter:
         y: 410
         width: 111
         height: 110
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18975914}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -30.5, y: 55}
-        - {x: -55.5, y: 25}
-        - {x: -55.5, y: -44}
-        - {x: -34.5, y: -55}
-        - {x: 48.5, y: -55}
-        - {x: 55.5, y: -49}
-        - {x: 55.5, y: 49}
-        - {x: 34.5, y: 55}
+      - - {x: -30.5, y: 89.126495}
+        - {x: -55.5, y: 59.126495}
+        - {x: -55.5, y: -9.873505}
+        - {x: -34.5, y: -20.873505}
+        - {x: 48.5, y: -20.873505}
+        - {x: 55.5, y: -14.873505}
+        - {x: 55.5, y: 83.126495}
+        - {x: 34.5, y: 89.126495}
     - name: ph_leg
       rect:
         serializedVersion: 2
@@ -82,14 +82,14 @@ TextureImporter:
         y: 330
         width: 39
         height: 224
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.92724365}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -19.5, y: 112}
-        - {x: -19.5, y: -112}
-        - {x: 19.5, y: -112}
-        - {x: 19.5, y: 112}
+      - - {x: -19.5, y: 16.297424}
+        - {x: -19.5, y: -207.70258}
+        - {x: 19.5, y: -207.70258}
+        - {x: 19.5, y: 16.297424}
     - name: ph_arm
       rect:
         serializedVersion: 2
@@ -97,14 +97,14 @@ TextureImporter:
         y: 441
         width: 139
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.14240292, y: 0.5463683}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -69.5, y: 24}
-        - {x: -69.5, y: -24}
-        - {x: 69.5, y: -24}
-        - {x: 69.5, y: 24}
+      - - {x: -19.794006, y: 21.774323}
+        - {x: -19.794006, y: -26.225677}
+        - {x: 119.20599, y: -26.225677}
+        - {x: 119.20599, y: 21.774323}
     - name: ph_body3
       rect:
         serializedVersion: 2
