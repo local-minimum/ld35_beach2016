@@ -41,7 +41,7 @@ public class RhythemIcon : MonoBehaviour {
 		image.sprite = channel.iconImage;
 		image.color = sound == null ? channel.offBeatColor : channel.beatColor;
 		image.enabled = true;
-		progress = Time.timeSinceLevelLoad;
+		progress = 0;
 		falling = true;
 	}
 }

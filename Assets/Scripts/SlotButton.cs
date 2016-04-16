@@ -16,7 +16,7 @@ public class SlotButton : MonoBehaviour {
 
 	[SerializeField] Color32 pressedColor;
 
-	[SerializeField] bool activeSet;
+	[SerializeField] Rhythem track;
 
 	[SerializeField, Range(0, 5)] float colorAttack = 0.3f;
 
@@ -27,7 +27,7 @@ public class SlotButton : MonoBehaviour {
 	}
 	
 	void Update () {
-		if (activeSet) {
+		if (track.enabled) {
 			textField.color = activeColor;
 			if (Input.GetKeyDown (button)) {
 				img.color = pressedColor;
