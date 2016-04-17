@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public delegate void TrackEvent(AudioClip clip);
+public delegate void TrackEvent(AudioClip clip, int beatValue);
 
 public class Rhythem : MonoBehaviour {
 
@@ -42,7 +42,7 @@ public class Rhythem : MonoBehaviour {
 		if (Track.Length > 0) {
 			beat = (beat + 1) % Track.Length;
 			if (OnTrackEvent != null && beating)
-				OnTrackEvent (exercise.Instruments [Instrument]);
+				OnTrackEvent (exercise.Instruments [Instrument], beatValue);
 		}
 	}
 	

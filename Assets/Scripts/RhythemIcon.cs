@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public delegate void HitEvent(Rhythem rhythem, RhythemIcon icon);
+public delegate void HitEvent(Rhythem rhythem, RhythemIcon icon, int beatValue);
 
 public class RhythemIcon : MonoBehaviour {
 
@@ -14,6 +14,7 @@ public class RhythemIcon : MonoBehaviour {
 	[HideInInspector] public float progress;
 	Image image;
 	bool hit = false;
+	public int beatValue = 1;
 
 	void Awake () {
 		image = GetComponent<Image> ();
@@ -62,7 +63,7 @@ public class RhythemIcon : MonoBehaviour {
 	public void Hit() {
 		hit = true;
 		if (OnHit != null)
-			OnHit (channel.rhythem, this);
+			OnHit (channel.rhythem, this, beatValue);
 		if (sound != null)
 			channel.speaker.PlayOneShot (sound);
 	}

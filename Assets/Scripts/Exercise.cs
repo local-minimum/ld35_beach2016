@@ -56,8 +56,9 @@ public class Exercise : MonoBehaviour {
 
 	public void Play() {
 		for (int i = 0; i < Tracks.Length; i++) {
-			if (Tracks [i].gameObject.activeSelf) {
+			if (Tracks [i].beating) {
 				Channels [i].autoPlay = false;
+				Channels [i].speaker.mute = false;
 			}
 		}
 

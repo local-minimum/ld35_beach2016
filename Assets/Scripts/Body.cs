@@ -23,6 +23,10 @@ public class Body : MonoBehaviour {
 
 	[HideInInspector] public List<int> partsInCurrentSet = new List<int>();
 
+	[SerializeField] AudioClip winSet;
+
+	[SerializeField] AudioSource speaker;
+
 	int _currentSet = 0;
 	public bool isExecising = false;
 
@@ -48,17 +52,18 @@ public class Body : MonoBehaviour {
 		RhythemIcon.OnHit -= HandleWorkout;
 	}
 
-	void HandleWorkout (Rhythem rhythem, RhythemIcon icon)
+	void HandleWorkout (Rhythem rhythem, RhythemIcon icon, int beatValue)
 	{
 		int bodyPart = exercise.GetBodyPartIndex (rhythem);
 		if (isExecising && !exercise.Channels [bodyPart].autoPlay) {
 			Debug.Log ("Hit the beat");
-			repsRemaining [bodyPart] = Mathf.Max (0, repsRemaining [bodyPart] - 1);
+			repsRemaining [bodyPart] = Mathf.Max (0, repsRemaining [bodyPart] - beatValue);
 
 			if (repsRemaining [bodyPart] == 0) {
+				speaker.PlayOneShot (winSet, 0.3f);
 				exercise.Channels [bodyPart].autoPlay = true;
 				exerciseLevels [bodyPart]++;
-				exercise.Tracks [bodyPart].beating = false;
+				//exercise.Tracks [bodyPart].beating = false;
 			}
 			
 			if (OnReps != null)
@@ -74,6 +79,7 @@ public class Body : MonoBehaviour {
 
 	IEnumerator<WaitForSeconds> DoCompleteSet() {
 		isExecising = false;
+
 		yield return new WaitForSeconds (nextSetSelectionDelay);
 		setLength += setLengthInc [Mathf.Min (_currentSet, setLengthInc.Length)];
 		_currentSet++;
@@ -180,11 +186,16 @@ public class Body : MonoBehaviour {
 	public void GameOver() {
 		foreach (var c in exercise.Channels) {
 			c.autoPlay = true;
+			c.speaker.mute = true;
 		}
+
+		speaker.Play ();
 
 		foreach (var t in exercise.Tracks) {
 			t.beating = true;
 		}
+
+
 		Debug.Log ("Nothing more to improve");
 		//TODO: DO beach!
 	}

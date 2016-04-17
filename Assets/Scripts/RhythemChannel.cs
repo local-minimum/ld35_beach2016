@@ -68,11 +68,12 @@ public class RhythemChannel : MonoBehaviour {
 		//TODO: Missed.. punsh?
 	}
 
-	void Rhythem_OnTrackEvent (AudioClip clip)
+	void Rhythem_OnTrackEvent (AudioClip clip, int beatValue)
 	{
 		var icon = FreeIcon;
 		icon.SetSound (clip);
 		icon.SetRhythemChannel (this);
+		icon.beatValue = beatValue;
 		icon.StartFall ();
 			
 	}

@@ -39,7 +39,7 @@ public class Puppeteer : MonoBehaviour {
 		RhythemIcon.OnHit -= RhythemIcon_OnHit;
 	}
 
-	void RhythemIcon_OnHit (Rhythem rhythem, RhythemIcon icon)
+	void RhythemIcon_OnHit (Rhythem rhythem, RhythemIcon icon, int beatValue)
 	{
 		if (rhythem == this.rhythem) {
 			position = Mathf.Clamp01 (position + hitPower);
