@@ -14,7 +14,7 @@ public class Body : MonoBehaviour {
 	public static event RepsEvent OnReps;
 	public static event BodyPartSetEvent OnBodyPartSetEvent;
 
-	int[] exerciseMaxLevels = new int[5] {5, 5, 5, 5, 5};
+	[SerializeField] int[] exerciseMaxLevels = new int[5] {5, 5, 5, 5, 5};
 	[SerializeField] int[] exerciseLevels = new int[5] {0, 0, 0, 0, 0};
 	[SerializeField] int[] pathSelections = new int[5] {0, 0, 0, 0, 0};
 	int[] repsRemaining = new int[5] {0, 0, 0, 0, 0};
@@ -30,7 +30,7 @@ public class Body : MonoBehaviour {
 		get {
 			int partsWithRemaining = 0;
 			for (int i = 0; i < exerciseLevels.Length; i++) {
-				if (exerciseLevels [i] < exerciseMaxLevels [i])
+				if (exerciseLevels [i] < exerciseMaxLevels [pathSelections[i]])
 					partsWithRemaining++;
 			}
 			Debug.Log ("Remaing " + partsWithRemaining);
@@ -99,7 +99,7 @@ public class Body : MonoBehaviour {
 	bool HasMoreDepth {
 		get {
 			for (int i = 0; i < exerciseMaxLevels.Length; i++) {
-				if (exerciseLevels [i] < exerciseMaxLevels [i])
+				if (exerciseLevels [i] < exerciseMaxLevels [exerciseMaxLevels [pathSelections[i]]])
 					return true;
 			}
 			return false;

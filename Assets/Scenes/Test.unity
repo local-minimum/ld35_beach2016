@@ -4032,7 +4032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.541}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4295,7 +4295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.984}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6663,6 +6663,7 @@ MonoBehaviour:
   nextSetSelectionDelay: 3
   exercise: {fileID: 1580593572}
   setLength: 8
+  exerciseMaxLevels: 0000000004000000030000000400000004000000
   exerciseLevels: 0000000000000000000000000000000000000000
   pathSelections: 0000000000000000000000000000000000000000
   partsInSets: 01000000020000000300000003000000040000000400000005000000
@@ -9197,7 +9198,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &1881703419
 GameObject:
   m_ObjectHideFlags: 0
