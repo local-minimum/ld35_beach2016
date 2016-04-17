@@ -63,6 +63,12 @@ public class ShapeShiftingPart : MonoBehaviour {
 	}
 
 	#if UNITY_EDITOR
+
+	public void SetFromLocal() {
+		rend = GetComponent<SpriteRenderer> ();
+		shapeImages [editShape] = rend.sprite;
+	}
+
 	public void SetCurrent() {
 		Shift (editShape);
 		foreach (ShapeShiftingAnchor anchor in FindObjectsOfType<ShapeShiftingAnchor>()) {

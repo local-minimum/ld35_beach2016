@@ -16,5 +16,9 @@ public class ShapeShiftInspector : Editor {
 		if (GUILayout.Button ("Record anchors")) {
 			(target as ShapeShiftingPart).RecordAnchors ();	
 		}
+
+		if (GUILayout.Button ("Update from  local")) {
+			(target as ShapeShiftingPart).SetFromLocal ();
+		}
 	}
 }

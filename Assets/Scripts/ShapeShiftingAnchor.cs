@@ -3,7 +3,8 @@ using System.Collections;
 
 public class ShapeShiftingAnchor : MonoBehaviour {
 
-	public Transform anchored;
+	public HingeJoint2D hingeJoint;
+	public SpringJoint2D springJoint;
 
 	public AnimationCurve easing;
 
@@ -11,7 +12,7 @@ public class ShapeShiftingAnchor : MonoBehaviour {
 
 	public int currentShape;
 
-	public Vector3[] anchorLocalPositions;
+	public Vector3[] anchorLocalPositions = new Vector3[0];
 
 	public ShapeShiftingPart controller;
 
@@ -30,13 +31,23 @@ public class ShapeShiftingAnchor : MonoBehaviour {
 	void OnDisable() {
 		controller.OnShiftEvent -= HandleNewShape;
 	}
-
+		
 	public void HandleNewShape (int shape)
 	{
 		currentShape = shape;
-		transform.localPosition = anchorLocalPositions [currentShape];
-		shiftOrigin = anchored.position;
-		shiftVector = transform.position - shiftOrigin;
+		shiftOrigin = transform.localPosition;
+		if (currentShape < anchorLocalPositions.Length) {
+			transform.localPosition = anchorLocalPositions [currentShape];
+		} else if (anchorLocalPositions == null) {
+			anchorLocalPositions = new Vector3[1] { transform.localPosition };
+		} else {
+			Vector3[] newArr = new Vector3[currentShape + 1];
+			System.Array.Copy (anchorLocalPositions, newArr, anchorLocalPositions.Length);
+			newArr [currentShape] = transform.localPosition;
+			anchorLocalPositions = newArr;
+		}
+
+		shiftVector = transform.localPosition - shiftOrigin;
 		shiftTime = Time.timeSinceLevelLoad;
 		shifting = true;
 	}
@@ -45,10 +56,18 @@ public class ShapeShiftingAnchor : MonoBehaviour {
 		if (shifting) {
 			float progress = Mathf.Clamp01 ((Time.timeSinceLevelLoad - shiftTime) / duration);
 			if (progress == 1) {
-				anchored.position = transform.position;
+				
+				if (hingeJoint != null)
+					hingeJoint.connectedAnchor = transform.localPosition;
+				if (springJoint != null)
+					springJoint.anchor = transform.localPosition;
 				shifting = false;
-			} else {
-				anchored.position = easing.Evaluate(progress) * shiftVector + shiftOrigin;
+			} else {				
+				if (hingeJoint != null)
+					hingeJoint.connectedAnchor = easing.Evaluate(progress) * shiftVector + shiftOrigin;
+				if (springJoint != null)
+					springJoint.anchor = easing.Evaluate(progress) * shiftVector + shiftOrigin;
+
 			}
 		}
 	}
