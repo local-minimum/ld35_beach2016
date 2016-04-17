@@ -7,7 +7,7 @@ public class GameProgress : MonoBehaviour {
 
 	[SerializeField, Range(0, 1)] float selectingSetFactor = .1f;
 
-	float progress = 1;
+	public float progress = 1;
 
 	[SerializeField, Range(10, 60 * 5)] float duration = 60f;
 

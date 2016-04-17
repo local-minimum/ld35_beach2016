@@ -44,15 +44,15 @@ public class SetBodyPartPath : MonoBehaviour {
 
 	void SetBodyPartSelector_OnBodyPartSelection (int part, EventType eventType)
 	{
-		if (eventType == EventType.Select && !body.HasBeenExercised(part)) {
+		if (eventType == EventType.Select && !body.HasBeenExercised (part)) {
 			selectedBodyPart = part;
-			int path = body.GetPathSelected (part) - 1;
-			if (path < 0)
-				path = Random.Range (0, toggles.Length);			
 			settingUp = true;
-			toggles [path].isOn = true;
+			for (int path = 0; path < toggles.Length; path++)
+				toggles [path].isOn = false;
 			img.color = activeColor;
 			settingUp = false;
+		} else if (eventType == EventType.Select) {
+			img.color = hiddenColor;
 		}
 	}
 }

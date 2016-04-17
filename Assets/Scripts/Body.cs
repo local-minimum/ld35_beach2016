@@ -29,6 +29,7 @@ public class Body : MonoBehaviour {
 
 	int _currentSet = 0;
 	public bool isExecising = false;
+	public bool isPlaying = true;
 
 	public int partsInSet {
 		get {
@@ -184,6 +185,7 @@ public class Body : MonoBehaviour {
 	}
 
 	public void GameOver() {
+		isPlaying = false;
 		foreach (var c in exercise.Channels) {
 			c.autoPlay = true;
 			c.speaker.mute = true;

@@ -56,11 +56,12 @@ public class RhythemChannel : MonoBehaviour {
 		button.OnPressEvent -= Button_OnPressEvent;
 	}
 
-	void Button_OnPressEvent ()
+	void Button_OnPressEvent (ParticleSystem ps)
 	{
 		for (int i = 0, l = icons.Count; i < l; i++) {
 			if (icons [i].isABeat && Mathf.Abs (icons [i].progress - hitProgress) < hitTolerance) {
 				icons [i].Hit ();
+				ps.Emit (Random.Range (50, 150));
 				return;
 			}
 		}

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public delegate void PressEvent();
+public delegate void PressEvent(ParticleSystem ps);
 
 public class SlotButton : MonoBehaviour {
 
@@ -27,7 +27,10 @@ public class SlotButton : MonoBehaviour {
 
 	[SerializeField, Range(0, 5)] float colorAttack = 0.3f;
 
+	ParticleSystem ps;
+
 	void Start () {
+		ps = GetComponent<ParticleSystem> ();
 		img = GetComponent<Image> ();
 		textField = GetComponentInChildren<Text> ();
 		var txt = button.ToString ();
@@ -43,7 +46,7 @@ public class SlotButton : MonoBehaviour {
 			if (Input.GetKeyDown (button)) {
 				img.color = pressedColor;
 				if (OnPressEvent != null)
-					OnPressEvent ();
+					OnPressEvent (ps);
 			} else {
 				img.color = Color32.Lerp (img.color, activeColor, Time.deltaTime * colorAttack);
 			}
