@@ -30,7 +30,10 @@ public class SlotButton : MonoBehaviour {
 	void Start () {
 		img = GetComponent<Image> ();
 		textField = GetComponentInChildren<Text> ();
-		textField.text = button.ToString ();
+		var txt = button.ToString ();
+		if (txt.StartsWith ("Alpha"))
+			txt = txt.Substring (5);
+		textField.text = txt;
 	}
 	
 	void Update () {
