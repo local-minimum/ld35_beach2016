@@ -18,6 +18,7 @@ public class SetBodyPartPath : MonoBehaviour {
 
 	public void SetPath(int path) {
 		if (selectedBodyPart >= 0 && !settingUp) {
+			Debug.Log ("Path" + path);
 			body.SetPath (selectedBodyPart, path);
 			selectedBodyPart = -1;
 			StartCoroutine (DelayHidden ());

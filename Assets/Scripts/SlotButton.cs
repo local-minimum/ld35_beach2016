@@ -11,6 +11,8 @@ public class SlotButton : MonoBehaviour {
 	[SerializeField] KeyCode button;
 	Image img;
 
+	[SerializeField] Image progressImage;
+
 	Text textField;
 
 	[SerializeField] Color32 inactiveColor;
@@ -45,6 +47,29 @@ public class SlotButton : MonoBehaviour {
 		} else {
 			img.color = inactiveColor;
 			textField.color = inactiveColor;
+		}
+	}
+
+	void OnEnable() {
+		Body.OnReps += Body_OnReps;
+		Body.OnBodyPartSetEvent += Body_OnBodyPartSetEvent;
+	}
+
+	void OnDisable() {
+		Body.OnReps -= Body_OnReps;
+		Body.OnBodyPartSetEvent -= Body_OnBodyPartSetEvent;
+	}
+
+	void Body_OnBodyPartSetEvent (Body body)
+	{
+		if (!body.isExecising)
+			progressImage.fillAmount = 0;
+	}
+
+	void Body_OnReps (Body body, int bodyPart, float progress)
+	{
+		if (body.exercise.GetBodyPartIndex (track) == bodyPart) {
+			progressImage.fillAmount = progress;
 		}
 	}
 }

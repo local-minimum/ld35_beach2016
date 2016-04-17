@@ -5,9 +5,11 @@ public delegate void ShiftEvent(int shape);
 
 public class ShapeShiftingPart : MonoBehaviour {
 
+	public int bodyPartIndex;
+
 	public event ShiftEvent OnShiftEvent;
 
-	public int[] startShapes = new int[] {0};
+	public int startShapes = 1;
 
 	public Sprite[] shapeImages;
 
@@ -24,7 +26,7 @@ public class ShapeShiftingPart : MonoBehaviour {
 	}
 
 	void Start () {
-		Shift (startShapes [Random.Range (0, startShapes.Length)]);
+		Shift (Random.Range (0, startShapes));
 	}
 
 	void Shift(int newShape) {
@@ -34,12 +36,30 @@ public class ShapeShiftingPart : MonoBehaviour {
 	}
 
 	public void RandomShift() {
-		Shift (Random.Range (0, shapeImages.Length));
+		Shift (Random.Range (0, startShapes));
 	}
 
 	void Update() {
 		if (Random.value < Time.deltaTime * shiftChance)
 			RandomShift ();
+	}
+
+	void OnEnable() {
+		Body.OnReps += Body_OnReps;
+	}
+
+	void OnDisable() {
+		Body.OnReps -= Body_OnReps;
+	}
+
+	void Body_OnReps (Body body, int bodyPart, float progress)
+	{
+		if (bodyPart == bodyPartIndex && progress == 1) {
+			var path = body.GetPathSelected (bodyPartIndex);
+			var lvl = body.CurrentLevel (bodyPartIndex);
+			Debug.Log ("start " + startShapes + " lvl " + lvl + " path " + path + " : " + startShapes + (lvl - 1) * 4 + (path - 1));
+			Shift (startShapes + (lvl - 1) * 4 + (path - 1));
+		}
 	}
 
 	#if UNITY_EDITOR

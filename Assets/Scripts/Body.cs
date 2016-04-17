@@ -6,7 +6,9 @@ public delegate void RepsEvent(Body body, int bodyPart, float progress);
 
 public class Body : MonoBehaviour {
 
-	[SerializeField] Exercise exercise;
+	[SerializeField] float nextSetSelectionDelay = 3f;
+
+	public Exercise exercise;
 	[SerializeField] int setLength = 15;
 
 	public static event RepsEvent OnReps;
@@ -14,9 +16,10 @@ public class Body : MonoBehaviour {
 
 	int[] exerciseMaxLevels = new int[5] {5, 5, 5, 5, 5};
 	[SerializeField] int[] exerciseLevels = new int[5] {0, 0, 0, 0, 0};
-	int[] pathSelections = new int[5] {0, 0, 0, 0, 0};
+	[SerializeField] int[] pathSelections = new int[5] {0, 0, 0, 0, 0};
 	int[] repsRemaining = new int[5] {0, 0, 0, 0, 0};
 	[SerializeField] int[] partsInSets = new int[] {1, 2, 3, 3, 4, 4, 5};
+	[SerializeField] int[] setLengthInc = new int[] {0, 1, 1, 1, 2};
 
 	[HideInInspector] public List<int> partsInCurrentSet = new List<int>();
 
@@ -48,7 +51,7 @@ public class Body : MonoBehaviour {
 	void HandleWorkout (Rhythem rhythem, RhythemIcon icon)
 	{
 		int bodyPart = exercise.GetBodyPartIndex (rhythem);
-		if (!exercise.Channels [bodyPart].autoPlay) {
+		if (isExecising && !exercise.Channels [bodyPart].autoPlay) {
 			Debug.Log ("Hit the beat");
 			repsRemaining [bodyPart] = Mathf.Max (0, repsRemaining [bodyPart] - 1);
 
@@ -63,18 +66,24 @@ public class Body : MonoBehaviour {
 		
 
 			if (AllRepsDone) {
-				ClearBodyParts ();
-				_currentSet++;
-
-				if (HasMoreDepth) {
-					if (OnBodyPartSetEvent != null)
-						OnBodyPartSetEvent (this);
-				} else {
-					//TODO: DO beach!
-				}
+				StartCoroutine (DoCompleteSet ());
 			}
 
 		}
+	}
+
+	IEnumerator<WaitForSeconds> DoCompleteSet() {
+		yield return new WaitForSeconds (nextSetSelectionDelay);
+		Debug.Log ("Wait done");
+		setLength += setLengthInc [Mathf.Min (_currentSet, setLengthInc.Length)];
+		_currentSet++;
+		if (HasMoreDepth) {
+			
+			ClearBodyParts ();
+		} else {
+			//TODO: DO beach!
+		}
+
 	}
 
 	bool AllRepsDone {
