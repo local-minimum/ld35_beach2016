@@ -10,6 +10,8 @@ public class Rhythem : MonoBehaviour {
 
 	[SerializeField] public int scaleFactor = 1;
 
+	[SerializeField] public int beatValue = 1;
+
 	Exercise exercise;
 
 	public bool beating = true;
