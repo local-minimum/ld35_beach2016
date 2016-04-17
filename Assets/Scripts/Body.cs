@@ -2,26 +2,99 @@
 using System.Collections.Generic;
 
 public delegate void BodyPartSetEvent(Body body);
+public delegate void RepsEvent(Body body, int bodyPart, float progress);
 
 public class Body : MonoBehaviour {
 
 	[SerializeField] Exercise exercise;
+	[SerializeField] int setLength = 15;
 
+	public static event RepsEvent OnReps;
 	public static event BodyPartSetEvent OnBodyPartSetEvent;
 
-	int[] exerciseLevels = new int[5] {0, 0, 0, 0, 0};
-	int[] pathSelections = new int[5] {0, 1, 2, 3, 4};
+	int[] exerciseMaxLevels = new int[5] {5, 5, 5, 5, 5};
+	[SerializeField] int[] exerciseLevels = new int[5] {0, 0, 0, 0, 0};
+	int[] pathSelections = new int[5] {0, 0, 0, 0, 0};
+	int[] repsRemaining = new int[5] {0, 0, 0, 0, 0};
+	[SerializeField] int[] partsInSets = new int[] {1, 2, 3, 3, 4, 4, 5};
 
 	[HideInInspector] public List<int> partsInCurrentSet = new List<int>();
 
-	int partsInSet = 2;
+	int _currentSet = 0;
+	public bool isExecising = false;
+
+	int partsInSet {
+		get {
+			int partsWithRemaining = 0;
+			for (int i = 0; i < exerciseLevels.Length; i++) {
+				if (exerciseLevels [i] < exerciseMaxLevels [i])
+					partsWithRemaining++;
+			}
+			Debug.Log ("Remaing " + partsWithRemaining);
+			return Mathf.Min (partsWithRemaining, partsInSets[Mathf.Min(_currentSet, partsInSets.Length - 1)]);
+		}
+	}
 
 	void OnEnable() {
 		SetBodyPartSelector.OnBodyPartSelection += SetBodyPartSelector_OnBodyPartSelection;
+		RhythemIcon.OnHit += HandleWorkout;
 	}
 
 	void OnDisalbe() {
 		SetBodyPartSelector.OnBodyPartSelection -= SetBodyPartSelector_OnBodyPartSelection;
+		RhythemIcon.OnHit -= HandleWorkout;
+	}
+
+	void HandleWorkout (Rhythem rhythem, RhythemIcon icon)
+	{
+		int bodyPart = exercise.GetBodyPartIndex (rhythem);
+		if (!exercise.Channels [bodyPart].autoPlay) {
+			Debug.Log ("Hit the beat");
+			repsRemaining [bodyPart] = Mathf.Max (0, repsRemaining [bodyPart] - 1);
+
+			if (repsRemaining [bodyPart] == 0) {
+				exercise.Channels [bodyPart].autoPlay = true;
+				exerciseLevels [bodyPart]++;
+				exercise.Tracks [bodyPart].gameObject.SetActive (false);
+			}
+			
+			if (OnReps != null)
+				OnReps (this, bodyPart, 1 - (float)repsRemaining [bodyPart] / setLength);
+		
+
+			if (AllRepsDone) {
+				ClearBodyParts ();
+				_currentSet++;
+
+				if (HasMoreDepth) {
+					if (OnBodyPartSetEvent != null)
+						OnBodyPartSetEvent (this);
+				} else {
+					//TODO: DO beach!
+				}
+			}
+
+		}
+	}
+
+	bool AllRepsDone {
+		get {
+			for (int i = 0; i < repsRemaining.Length; i++) {
+				if (repsRemaining [i] > 0)
+					return false;
+			}
+			return true;
+		}
+	}
+
+	bool HasMoreDepth {
+		get {
+			for (int i = 0; i < exerciseMaxLevels.Length; i++) {
+				if (exerciseLevels [i] < exerciseMaxLevels [i])
+					return true;
+			}
+			return false;
+		}
 	}
 
 	void SetBodyPartSelector_OnBodyPartSelection (int part, EventType eventType)
@@ -65,19 +138,27 @@ public class Body : MonoBehaviour {
 	}
 
 	public void ClearBodyParts() {
+		Debug.Log ("Clear");
 		partsInCurrentSet.Clear ();
+		isExecising = false;
 		if (OnBodyPartSetEvent != null)
 			OnBodyPartSetEvent (this);
 
 	}
 
 	public void Play() {
-
+		Debug.Log ("Play");
+		foreach (int part in partsInCurrentSet) {
+			repsRemaining [part] = setLength;
+		}
+		isExecising = true;
 		exercise.Play ();
 	}
 
 	public bool EnoughParts {
 		get {
+			Debug.Log ("Parts in set " + partsInSet);
+			Debug.Log ("Parts in current " + partsInCurrentSet.Count);
 			return partsInCurrentSet.Count == partsInSet;
 		}
 	}

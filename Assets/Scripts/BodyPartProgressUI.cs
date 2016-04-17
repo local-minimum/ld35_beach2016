@@ -36,7 +36,7 @@ public class BodyPartProgressUI : MonoBehaviour {
 			panelImage.color = hiddenColor;
 		} else {
 			bodyPartIcon.sprite = bodyPartIcons [part];
-			idealIcon.sprite = idealIcons [body.GetPathSelected(part)];
+			idealIcon.sprite = idealIcons [body.GetPathSelected(part) - 1];
 
 			var curLvl = body.CurrentLevel (part);
 	

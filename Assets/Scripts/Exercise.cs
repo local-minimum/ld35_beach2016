@@ -47,8 +47,10 @@ public class Exercise : MonoBehaviour {
 
 	void Body_OnBodyPartSetEvent (Body body)
 	{
+		
 		for (int i = 0; i < Tracks.Length; i++) {
 			Tracks [i].gameObject.SetActive (body.partsInCurrentSet.Contains (i));
+			Channels [i].autoPlay = !body.isExecising;
 		}
 	}
 
@@ -59,6 +61,14 @@ public class Exercise : MonoBehaviour {
 			}
 		}
 
+	}
+
+	public int GetBodyPartIndex(Rhythem rythm) {
+		for (int i = 0; i < Tracks.Length; i++) {
+			if (Tracks [i] == rythm)
+				return i;
+		}
+		return -1;
 	}
 
 }

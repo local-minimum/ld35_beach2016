@@ -21,7 +21,7 @@ public class SetSelectionUI : MonoBehaviour {
 		panelImage.color = hiddenColor;
 		body.Play ();
 	}
-
+		
 	public void UndoSelect() {
 		var bodyPart = body.UndoSetSelection ();
 		if (bodyPart >= 0) {
@@ -38,7 +38,7 @@ public class SetSelectionUI : MonoBehaviour {
 		Body.OnBodyPartSetEvent -= Body_OnBodyPartSetEvent;
 	}
 
-	void Start() {
+	public void Start() {
 		Body_OnBodyPartSetEvent (body);
 		body.ClearBodyParts ();
 	}
@@ -47,6 +47,7 @@ public class SetSelectionUI : MonoBehaviour {
 	{
 		undoButton.SetActive (body.AnyParts);
 		completeButton.SetActive (body.EnoughParts);
+		panelImage.color = activeColor;
 	}
 
 
