@@ -16,6 +16,7 @@ public class SetSelectionUI : MonoBehaviour {
 
 	[SerializeField] GameObject undoButton;
 	[SerializeField] GameObject completeButton;
+	[SerializeField] Text remaining;
 
 	public void HideContents() {
 		panelImage.color = hiddenColor;
@@ -48,6 +49,7 @@ public class SetSelectionUI : MonoBehaviour {
 		undoButton.SetActive (body.AnyParts);
 		completeButton.SetActive (body.EnoughParts);
 		panelImage.color = activeColor;
+		remaining.text = body.EnoughParts ? "Pump 'em!" : "Select: " + (body.partsInSet - body.partsInCurrentSet.Count);
 	}
 
 

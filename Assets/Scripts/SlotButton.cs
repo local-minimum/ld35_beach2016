@@ -38,7 +38,7 @@ public class SlotButton : MonoBehaviour {
 	
 	void Update () {
 		
-		if (track.enabled && !channel.autoPlay) {
+		if (track.beating && !channel.autoPlay) {
 			textField.color = activeColor;
 			if (Input.GetKeyDown (button)) {
 				img.color = pressedColor;

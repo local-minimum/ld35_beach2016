@@ -26,7 +26,7 @@ public class Body : MonoBehaviour {
 	int _currentSet = 0;
 	public bool isExecising = false;
 
-	int partsInSet {
+	public int partsInSet {
 		get {
 			int partsWithRemaining = 0;
 			for (int i = 0; i < exerciseLevels.Length; i++) {
@@ -58,7 +58,7 @@ public class Body : MonoBehaviour {
 			if (repsRemaining [bodyPart] == 0) {
 				exercise.Channels [bodyPart].autoPlay = true;
 				exerciseLevels [bodyPart]++;
-				exercise.Tracks [bodyPart].gameObject.SetActive (false);
+				exercise.Tracks [bodyPart].beating = false;
 			}
 			
 			if (OnReps != null)
@@ -73,15 +73,14 @@ public class Body : MonoBehaviour {
 	}
 
 	IEnumerator<WaitForSeconds> DoCompleteSet() {
+		isExecising = false;
 		yield return new WaitForSeconds (nextSetSelectionDelay);
-		Debug.Log ("Wait done");
 		setLength += setLengthInc [Mathf.Min (_currentSet, setLengthInc.Length)];
 		_currentSet++;
-		if (HasMoreDepth) {
-			
+		if (HasMoreDepth) {			
 			ClearBodyParts ();
 		} else {
-			//TODO: DO beach!
+			GameOver ();
 		}
 
 	}
@@ -176,5 +175,17 @@ public class Body : MonoBehaviour {
 		get {
 			return partsInCurrentSet.Count > 0;
 		}
+	}
+
+	public void GameOver() {
+		foreach (var c in exercise.Channels) {
+			c.autoPlay = true;
+		}
+
+		foreach (var t in exercise.Tracks) {
+			t.beating = true;
+		}
+		Debug.Log ("Nothing more to improve");
+		//TODO: DO beach!
 	}
 }
