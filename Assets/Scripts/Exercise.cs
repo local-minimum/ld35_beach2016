@@ -41,7 +41,7 @@ public class Exercise : MonoBehaviour {
 	void SetBodyPartSelector_OnBodyPartSelection (int part, EventType eventType)
 	{
 		if (eventType == EventType.Select) {
-			Tracks [part].gameObject.SetActive (true);
+			Tracks [part].beating = true;
 		}
 	}
 
@@ -49,8 +49,8 @@ public class Exercise : MonoBehaviour {
 	{
 		
 		for (int i = 0; i < Tracks.Length; i++) {
-			Tracks [i].gameObject.SetActive (body.partsInCurrentSet.Contains (i));
 			Channels [i].autoPlay = !body.isExecising;
+			Tracks [i].beating =  body.partsInCurrentSet.Contains (i);
 		}
 	}
 

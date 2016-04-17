@@ -12,6 +12,8 @@ public class Rhythem : MonoBehaviour {
 
 	Exercise exercise;
 
+	public bool beating = true;
+
 	int beat;
 
 	public int Instrument {
@@ -37,7 +39,7 @@ public class Rhythem : MonoBehaviour {
 	{
 		if (Track.Length > 0) {
 			beat = (beat + 1) % Track.Length;
-			if (OnTrackEvent != null)
+			if (OnTrackEvent != null && beating)
 				OnTrackEvent (exercise.Instruments [Instrument]);
 		}
 	}
