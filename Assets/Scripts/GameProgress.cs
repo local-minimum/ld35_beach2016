@@ -9,9 +9,13 @@ public class GameProgress : MonoBehaviour {
 
 	public float progress = 1;
 
-	[SerializeField, Range(10, 60 * 5)] float duration = 60f;
+	float duration = 60f;
 
 	[SerializeField] Body body;
+
+	void Start() {
+		duration = PlayerPrefs.GetFloat ("Game.Duration", 60f);
+	}
 
 	void Update () {
 		progress -= body.isExecising ? Time.deltaTime / duration : Time.deltaTime / duration * selectingSetFactor;

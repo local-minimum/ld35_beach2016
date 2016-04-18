@@ -20,6 +20,12 @@ public class RhythemIcon : MonoBehaviour {
 		image = GetComponent<Image> ();
 	}
 
+	public bool visibleFall {
+		set {
+			image.enabled = value;
+		}
+	}
+
 	void Update () {
 		if (falling) {
 			progress += channel.deltaProgress;
@@ -27,7 +33,7 @@ public class RhythemIcon : MonoBehaviour {
 			transform.position = channel.GetPosition (progress);
 
 			if (!hit && channel.IsAutoHit(progress))
-				Hit();
+				Hit(channel.autoWorkout);
 
 			if (progress == 1f) {
 				image.enabled = false;
@@ -54,15 +60,18 @@ public class RhythemIcon : MonoBehaviour {
 	public void StartFall() {
 		image.sprite = channel.iconImage;
 		image.color = sound == null ? channel.offBeatColor : channel.beatColor;
-		image.enabled = true;
 		hit = sound == null;
 		progress = 0;
 		falling = true;
 	}
 
 	public void Hit() {
+		Hit (true);
+	}
+
+	public void Hit(bool emit) {
 		hit = true;
-		if (OnHit != null)
+		if (OnHit != null && emit)
 			OnHit (channel.rhythem, this, beatValue);
 		if (sound != null)
 			channel.speaker.PlayOneShot (sound);

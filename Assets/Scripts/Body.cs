@@ -19,6 +19,7 @@ public class Body : MonoBehaviour {
 	[SerializeField] int[] pathSelections = new int[5] {0, 0, 0, 0, 0};
 	int[] repsRemaining = new int[5] {0, 0, 0, 0, 0};
 	[SerializeField] int[] partsInSets = new int[] {1, 2, 3, 3, 4, 4, 5};
+	int gameModeSets;
 	[SerializeField] int[] setLengthInc = new int[] {0, 1, 1, 1, 2};
 
 	[HideInInspector] public List<int> partsInCurrentSet = new List<int>();
@@ -39,8 +40,12 @@ public class Body : MonoBehaviour {
 					partsWithRemaining++;
 			}
 			Debug.Log ("Remaing " + partsWithRemaining);
-			return Mathf.Min (partsWithRemaining, partsInSets[Mathf.Min(_currentSet, partsInSets.Length - 1)]);
+			return Mathf.Min (partsWithRemaining, Mathf.Max(gameModeSets, partsInSets[Mathf.Min(_currentSet, partsInSets.Length - 1)]));
 		}
+	}
+
+	void Awake() {
+		gameModeSets = Mathf.FloorToInt (PlayerPrefs.GetFloat ("Game.StartSets", 1f));
 	}
 
 	void OnEnable() {
@@ -56,13 +61,14 @@ public class Body : MonoBehaviour {
 	void HandleWorkout (Rhythem rhythem, RhythemIcon icon, int beatValue)
 	{
 		int bodyPart = exercise.GetBodyPartIndex (rhythem);
-		if (isExecising && !exercise.Channels [bodyPart].autoPlay) {
+		if (isExecising && !exercise.Channels [bodyPart].autoWorkout) {
 			Debug.Log ("Hit the beat");
 			repsRemaining [bodyPart] = Mathf.Max (0, repsRemaining [bodyPart] - beatValue);
 
 			if (repsRemaining [bodyPart] == 0) {
 				speaker.PlayOneShot (winSet, 0.3f);
 				exercise.Channels [bodyPart].autoPlay = true;
+				exercise.Channels [bodyPart].autoWorkout = true;
 				exerciseLevels [bodyPart]++;
 				//exercise.Tracks [bodyPart].beating = false;
 			}
@@ -167,7 +173,7 @@ public class Body : MonoBehaviour {
 			repsRemaining [part] = setLength;
 		}
 		isExecising = true;
-		exercise.Play ();
+		exercise.Play (this);
 	}
 
 	public bool EnoughParts {
@@ -188,6 +194,7 @@ public class Body : MonoBehaviour {
 		isPlaying = false;
 		foreach (var c in exercise.Channels) {
 			c.autoPlay = true;
+			c.autoWorkout = true;
 			c.speaker.mute = true;
 		}
 

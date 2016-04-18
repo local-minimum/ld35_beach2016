@@ -17,6 +17,7 @@ public class RhythemChannel : MonoBehaviour {
 	public AudioSource speaker;
 	public Sprite iconImage;
 	public bool autoPlay;
+	public bool autoWorkout = true;
 	public Color32 beatColor;
 	public Color32 offBeatColor;
 
@@ -76,6 +77,7 @@ public class RhythemChannel : MonoBehaviour {
 		icon.SetRhythemChannel (this);
 		icon.beatValue = beatValue;
 		icon.StartFall ();
+		icon.visibleFall = !autoPlay;
 			
 	}
 

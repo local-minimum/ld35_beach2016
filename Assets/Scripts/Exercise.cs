@@ -49,15 +49,16 @@ public class Exercise : MonoBehaviour {
 	{
 		
 		for (int i = 0; i < Tracks.Length; i++) {
-			Channels [i].autoPlay = !body.isExecising;
-			Tracks [i].beating =  body.partsInCurrentSet.Contains (i);
+			Channels [i].autoPlay = !body.partsInCurrentSet.Contains(i) || !body.isExecising;
+			Channels [i].autoWorkout = false;
+			//Tracks [i].beating =  body.partsInCurrentSet.Contains (i);
 		}
 	}
 
-	public void Play() {
+	public void Play(Body body) {
 		for (int i = 0; i < Tracks.Length; i++) {
 			if (Tracks [i].beating) {
-				Channels [i].autoPlay = false;
+				Channels [i].autoPlay = !body.partsInCurrentSet.Contains(i) || !body.isExecising;
 				Channels [i].speaker.mute = false;
 			}
 		}
