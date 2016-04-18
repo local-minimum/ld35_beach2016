@@ -28,7 +28,7 @@ public class SetBodyPartPath : MonoBehaviour {
 	}
 
 	IEnumerator<WaitForSeconds> DelayHidden() {
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (0.75f);
 		selectedBodyPart = -1;
 		if (selectedBodyPart < 0)
 			img.color = hiddenColor;

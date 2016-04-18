@@ -49,14 +49,14 @@ public class SetBodyPartSelector : MonoBehaviour {
 
 	void Body_OnBodyPartSetEvent (Body body)
 	{	
-		btn.interactable = !body.partsInCurrentSet.Contains (bodyPartIndex);
-		allowClick = !body.EnoughParts;
+		btn.interactable = !body.partsInCurrentSet.Contains (bodyPartIndex) && body.CanBeExercisedMore(bodyPartIndex);
+		allowClick = body.CanBeExercisedMore(bodyPartIndex) && !body.EnoughParts;
 	}
 
-	void HandeAllowInteract (int part)
+	void HandeAllowInteract (int part, Body body)
 	{
 		if (part == bodyPartIndex) {
-			btn.interactable = true;
+			Body_OnBodyPartSetEvent (body);
 		}
 	}
 }

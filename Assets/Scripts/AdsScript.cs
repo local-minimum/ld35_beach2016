@@ -29,7 +29,7 @@ public class AdsScript : MonoBehaviour {
 	}
 
 	public void CloseAd() {
-		Debug.Log ("Close Ad");
+		//Debug.Log ("Close Ad");
 		img.enabled = false;
 	}
 }

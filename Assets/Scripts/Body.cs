@@ -41,7 +41,7 @@ public class Body : MonoBehaviour {
 				if (exerciseLevels [i] < exerciseMaxLevels [pathSelections[i]])
 					partsWithRemaining++;
 			}
-			Debug.Log ("Remaing " + partsWithRemaining);
+			//Debug.Log ("Remaing " + partsWithRemaining);
 			return Mathf.Min (partsWithRemaining, Mathf.Max(gameModeSets, partsInSets[Mathf.Min(_currentSet, partsInSets.Length - 1)]));
 		}
 	}
@@ -113,11 +113,15 @@ public class Body : MonoBehaviour {
 	bool HasMoreDepth {
 		get {
 			for (int i = 0; i < exerciseMaxLevels.Length; i++) {
-				if (exerciseLevels [i] < exerciseMaxLevels [exerciseMaxLevels [pathSelections[i]]])
+				if (exerciseLevels [i] < exerciseMaxLevels [pathSelections[i]])
 					return true;
 			}
 			return false;
 		}
+	}
+
+	public bool CanBeExercisedMore(int part) {
+		return exerciseLevels [part] < exerciseMaxLevels [pathSelections [part]];
 	}
 
 	void SetBodyPartSelector_OnBodyPartSelection (int part, EventType eventType)
@@ -180,8 +184,8 @@ public class Body : MonoBehaviour {
 
 	public bool EnoughParts {
 		get {
-			Debug.Log ("Parts in set " + partsInSet);
-			Debug.Log ("Parts in current " + partsInCurrentSet.Count);
+			//Debug.Log ("Parts in set " + partsInSet);
+			//Debug.Log ("Parts in current " + partsInCurrentSet.Count);
 			return partsInCurrentSet.Count == partsInSet;
 		}
 	}
@@ -208,13 +212,6 @@ public class Body : MonoBehaviour {
 		speaker.clip = outroMusic;
 		speaker.loop = true;
 		speaker.Play();
-		/*
-		foreach (var t in exercise.Tracks) {
-			t.beating = true;
-		}*/
 
-
-		Debug.Log ("Nothing more to improve");
-		//TODO: DO beach!
 	}
 }

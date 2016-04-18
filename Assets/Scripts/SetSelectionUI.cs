@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public delegate void AllowInteract(int part);
+public delegate void AllowInteract(int part, Body body);
 
 public class SetSelectionUI : MonoBehaviour {
 
@@ -27,7 +27,7 @@ public class SetSelectionUI : MonoBehaviour {
 		var bodyPart = body.UndoSetSelection ();
 		if (bodyPart >= 0) {
 			if (OnAllowInteract != null)
-				OnAllowInteract (bodyPart);
+				OnAllowInteract (bodyPart, body);
 		}
 	}
 
