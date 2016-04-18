@@ -43,17 +43,19 @@ public class CamButton : MonoBehaviour {
 		Texture2D tex = new Texture2D (width, height, TextureFormat.RGB24, false);
 		tex.ReadPixels (new Rect ((Screen.width - width) / 2, (Screen.height - height) / 2, width, height), 0, 0);
 		tex.Apply ();
-		var png = tex.EncodeToPNG ();
-		int count = PlayerPrefs.GetInt("Beach.Photos", 0);
-		count++;
-		count %= 10;
 
 		#if UNITY_WEBGL
 		#else
+			var png = tex.EncodeToPNG ();
+			int count = PlayerPrefs.GetInt("Beach.Photos", 0);
+			count++;
+			count %= 10;
+
 			File.WriteAllBytes (Application.dataPath + "/Sprites/Photos/beach_photo_" + count + ".png", png);
+			PlayerPrefs.SetInt ("Beach.Photos", count);
+
 		#endif
 
-		PlayerPrefs.SetInt ("Beach.Photos", count);
 		PhotoLoader.photo = tex;
 		SceneManager.LoadScene ("PhotoAlbum");
 	}

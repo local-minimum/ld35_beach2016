@@ -7,7 +7,7 @@ public class KeyBinder : MonoBehaviour {
 	bool editing = false;
 	[SerializeField] int key = -1;
 	Text txt;
-	Button btn;
+
 	float cursorFreq = 0.9f;
 
 	public static bool validKey(int inputKey) {
@@ -52,7 +52,7 @@ public class KeyBinder : MonoBehaviour {
 	void Start () {
 		txt = GetComponentInChildren<Text> ();
 		txt.text = GetName(GetKey (key));
-		btn = GetComponent<Button> ();
+
 	}
 
 	public void Click() {

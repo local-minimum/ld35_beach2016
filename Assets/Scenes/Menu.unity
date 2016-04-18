@@ -4119,9 +4119,9 @@ MonoBehaviour:
   - < Thanksgiving >
   - << Summer's End
   values:
-  - 60
-  - 180
-  - 360
+  - 45
+  - 90
+  - 80
 --- !u!1 &1954231940
 GameObject:
   m_ObjectHideFlags: 0

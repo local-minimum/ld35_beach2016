@@ -30,6 +30,10 @@ public class BodyPartProgressUI : MonoBehaviour {
 		SetBodyPartSelector.OnBodyPartSelection -= SetBodyPartSelector_OnBodyPartSelection;
 	}
 
+	void OnDestroy() {
+		SetBodyPartSelector.OnBodyPartSelection -= SetBodyPartSelector_OnBodyPartSelection;
+	}
+
 	void SetBodyPartSelector_OnBodyPartSelection (int part, EventType eventType)
 	{
 		if (!body.HasBeenExercised (part)) {

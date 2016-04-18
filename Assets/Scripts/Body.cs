@@ -9,14 +9,14 @@ public class Body : MonoBehaviour {
 	[SerializeField] float nextSetSelectionDelay = 3f;
 
 	public Exercise exercise;
-	[SerializeField] int setLength = 15;
+	int setLength = 20;
 
 	public static event RepsEvent OnReps;
 	public static event BodyPartSetEvent OnBodyPartSetEvent;
 
 	[SerializeField] int[] exerciseMaxLevels = new int[5] {5, 5, 5, 5, 5};
-	[SerializeField] int[] exerciseLevels = new int[5] {0, 0, 0, 0, 0};
-	[SerializeField] int[] pathSelections = new int[5] {0, 0, 0, 0, 0};
+	int[] exerciseLevels = new int[5] {0, 0, 0, 0, 0};
+	int[] pathSelections = new int[5] {0, 0, 0, 0, 0};
 	int[] repsRemaining = new int[5] {0, 0, 0, 0, 0};
 	[SerializeField] int[] partsInSets = new int[] {1, 2, 3, 3, 4, 4, 5};
 	int gameModeSets;
@@ -46,8 +46,16 @@ public class Body : MonoBehaviour {
 		}
 	}
 
-	void Awake() {
+	void Start() {
 		gameModeSets = Mathf.FloorToInt (PlayerPrefs.GetFloat ("Game.StartSets", 1f));
+		exerciseLevels = new int[5] {0, 0, 0, 0, 0};
+		pathSelections = new int[5] {0, 0, 0, 0, 0};
+		repsRemaining = new int[5] {0, 0, 0, 0, 0};
+		setLength = 20;
+		_currentSet = 0;
+		isExecising = false;
+		isPlaying = true;
+
 	}
 
 	void OnEnable() {
@@ -56,6 +64,11 @@ public class Body : MonoBehaviour {
 	}
 
 	void OnDisalbe() {
+		SetBodyPartSelector.OnBodyPartSelection -= SetBodyPartSelector_OnBodyPartSelection;
+		RhythemIcon.OnHit -= HandleWorkout;
+	}
+
+	void OnDestory() {
 		SetBodyPartSelector.OnBodyPartSelection -= SetBodyPartSelector_OnBodyPartSelection;
 		RhythemIcon.OnHit -= HandleWorkout;
 	}
