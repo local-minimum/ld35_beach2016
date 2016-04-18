@@ -14,4 +14,5 @@ public class MenuPhotoAlbum : MonoBehaviour {
 	public void Click () {
 		SceneManager.LoadScene ("PhotoAlbum");
 	}
+
 }
