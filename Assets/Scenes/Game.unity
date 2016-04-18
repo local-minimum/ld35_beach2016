@@ -3609,7 +3609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4cda4c625efda469bc8b320c905afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: 49
+  channelButton: 1
   progressImage: {fileID: 989573363}
   inactiveColor:
     serializedVersion: 2
@@ -5834,7 +5834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4cda4c625efda469bc8b320c905afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: 50
+  channelButton: 2
   progressImage: {fileID: 494999407}
   inactiveColor:
     serializedVersion: 2
@@ -10893,7 +10893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4cda4c625efda469bc8b320c905afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: 52
+  channelButton: 4
   progressImage: {fileID: 1316210874}
   inactiveColor:
     serializedVersion: 2
@@ -12515,7 +12515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4cda4c625efda469bc8b320c905afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: 51
+  channelButton: 3
   progressImage: {fileID: 1319225575}
   inactiveColor:
     serializedVersion: 2
@@ -18237,7 +18237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4cda4c625efda469bc8b320c905afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: 53
+  channelButton: 5
   progressImage: {fileID: 408647328}
   inactiveColor:
     serializedVersion: 2
