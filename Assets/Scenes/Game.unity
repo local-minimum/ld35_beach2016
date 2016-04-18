@@ -493,14 +493,14 @@ MonoBehaviour:
   template: {fileID: 649079377}
   flipX: 1
   speaker: {fileID: 17550925}
-  iconImage: {fileID: 21300002, guid: 7281922f522ad154d9f874bdbebf449b, type: 3}
+  iconImage: {fileID: 21300000, guid: 44eb369e6babf2248a690627f07eb186, type: 3}
   autoPlay: 1
   beatColor:
     serializedVersion: 2
     rgba: 4294967295
   offBeatColor:
     serializedVersion: 2
-    rgba: 1707460037
+    rgba: 4279374354
   hitTolerance: 0.07
 --- !u!1 &34929410
 GameObject:
@@ -1160,14 +1160,14 @@ MonoBehaviour:
   template: {fileID: 1549790797}
   flipX: 0
   speaker: {fileID: 81541631}
-  iconImage: {fileID: 21300004, guid: 7281922f522ad154d9f874bdbebf449b, type: 3}
+  iconImage: {fileID: 21300000, guid: 07cb446ae29cb04448436b9ea9ec8327, type: 3}
   autoPlay: 1
   beatColor:
     serializedVersion: 2
     rgba: 4294967295
   offBeatColor:
     serializedVersion: 2
-    rgba: 1707460037
+    rgba: 4279374354
   hitTolerance: 0.07
 --- !u!82 &81541631
 AudioSource:
@@ -7504,14 +7504,14 @@ MonoBehaviour:
   template: {fileID: 362923825}
   flipX: 0
   speaker: {fileID: 521584238}
-  iconImage: {fileID: 21300000, guid: 7281922f522ad154d9f874bdbebf449b, type: 3}
+  iconImage: {fileID: 21300000, guid: 4b4e8dc7bd76cc04faf3688e0288dcfa, type: 3}
   autoPlay: 1
   beatColor:
     serializedVersion: 2
     rgba: 4294967295
   offBeatColor:
     serializedVersion: 2
-    rgba: 1707460037
+    rgba: 4279374354
   hitTolerance: 0.07
 --- !u!1 &540448660
 GameObject:
@@ -8347,7 +8347,7 @@ RectTransform:
   m_GameObject: {fileID: 649079375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 17550924}
   m_RootOrder: 0
@@ -10011,7 +10011,7 @@ RectTransform:
   m_GameObject: {fileID: 918946411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1459632585}
   m_RootOrder: 0
@@ -10199,14 +10199,14 @@ MonoBehaviour:
   template: {fileID: 1664003366}
   flipX: 0
   speaker: {fileID: 943792821}
-  iconImage: {fileID: 21300002, guid: 7281922f522ad154d9f874bdbebf449b, type: 3}
+  iconImage: {fileID: 21300000, guid: 44eb369e6babf2248a690627f07eb186, type: 3}
   autoPlay: 1
   beatColor:
     serializedVersion: 2
     rgba: 4294967295
   offBeatColor:
     serializedVersion: 2
-    rgba: 1707460037
+    rgba: 4279374354
   hitTolerance: 0.07
 --- !u!1 &976759600
 GameObject:
@@ -15748,14 +15748,14 @@ MonoBehaviour:
   template: {fileID: 918946413}
   flipX: 1
   speaker: {fileID: 1459632586}
-  iconImage: {fileID: 21300000, guid: 7281922f522ad154d9f874bdbebf449b, type: 3}
+  iconImage: {fileID: 21300000, guid: 4b4e8dc7bd76cc04faf3688e0288dcfa, type: 3}
   autoPlay: 1
   beatColor:
     serializedVersion: 2
     rgba: 4294967295
   offBeatColor:
     serializedVersion: 2
-    rgba: 1707460037
+    rgba: 4279374354
   hitTolerance: 0.07
 --- !u!1 &1463461772
 GameObject:
