@@ -18128,7 +18128,7 @@ MonoBehaviour:
   - {fileID: 65297076}
   Ads:
   - {fileID: 21300000, guid: a61e46fd210edc24fbed12772c545359, type: 3}
-  probability: 0.9
+  probability: 0.7
   progress: {fileID: 2118805051}
   delay: 0.1
   body: {fileID: 1120275659}
