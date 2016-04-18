@@ -28,6 +28,8 @@ public class Body : MonoBehaviour {
 
 	[SerializeField] AudioSource speaker;
 
+	[SerializeField] Animator beachAnim;
+
 	int _currentSet = 0;
 	public bool isExecising = false;
 	public bool isPlaying = true;
@@ -197,6 +199,8 @@ public class Body : MonoBehaviour {
 			c.autoWorkout = true;
 			c.speaker.mute = true;
 		}
+
+		beachAnim.SetTrigger ("Beach");
 
 		speaker.Play ();
 

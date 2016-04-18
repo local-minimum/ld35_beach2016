@@ -52,5 +52,9 @@ public class SetSelectionUI : MonoBehaviour {
 		remaining.text = body.EnoughParts ? "Pump 'em!" : "Select: " + (body.partsInSet - body.partsInCurrentSet.Count);
 	}
 
-
+	void Update() {
+		if (!body.isPlaying) {
+			panelImage.color = hiddenColor;
+		}
+	}
 }

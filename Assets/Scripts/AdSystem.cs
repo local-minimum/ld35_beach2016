@@ -12,8 +12,11 @@ public class AdSystem : MonoBehaviour {
 
 	void Update () {
 		if (body.isPlaying && Random.value < Time.deltaTime * probability * (1 - progress.progress)) {
-			int adsToShow = Random.Range (Mathf.FloorToInt(Ads.Length * (1 - progress.progress) * 0.5f), Ads.Length);
+			int adsToShow = Random.Range (Mathf.FloorToInt (Ads.Length * (1 - progress.progress) * 0.5f), Ads.Length);
 			StartCoroutine (Splash (adsToShow));	
+		} else if (!body.isPlaying) {
+			for (int i = 0; i < Popups.Length; i++)
+				Popups [i].CloseAd ();
 		}
 	}
 
