@@ -8,8 +8,10 @@ public class SlotButton : MonoBehaviour {
 
 	public event PressEvent OnPressEvent;
 
-	[SerializeField] KeyCode button;
+	KeyCode button;
 	Image img;
+
+	[SerializeField] int channelButton;
 
 	[SerializeField] Image progressImage;
 
@@ -33,10 +35,8 @@ public class SlotButton : MonoBehaviour {
 		ps = GetComponent<ParticleSystem> ();
 		img = GetComponent<Image> ();
 		textField = GetComponentInChildren<Text> ();
-		var txt = button.ToString ();
-		if (txt.StartsWith ("Alpha"))
-			txt = txt.Substring (5);
-		textField.text = txt;
+		button = KeyBinder.GetKey (channelButton);
+		textField.text = KeyBinder.GetName(button)	;
 	}
 	
 	void Update () {
