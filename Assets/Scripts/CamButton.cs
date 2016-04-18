@@ -47,7 +47,12 @@ public class CamButton : MonoBehaviour {
 		int count = PlayerPrefs.GetInt("Beach.Photos", 0);
 		count++;
 		count %= 10;
-		File.WriteAllBytes (Application.dataPath + "/Sprites/Photos/beach_photo_" + count + ".png", png);
+
+		#if UNITY_WEBGL
+		#else
+			File.WriteAllBytes (Application.dataPath + "/Sprites/Photos/beach_photo_" + count + ".png", png);
+		#endif
+
 		PlayerPrefs.SetInt ("Beach.Photos", count);
 		PhotoLoader.photo = tex;
 		SceneManager.LoadScene ("PhotoAlbum");

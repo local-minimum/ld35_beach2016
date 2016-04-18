@@ -25,7 +25,7 @@ public class Body : MonoBehaviour {
 	[HideInInspector] public List<int> partsInCurrentSet = new List<int>();
 
 	[SerializeField] AudioClip winSet;
-
+	[SerializeField] AudioClip outroMusic;
 	[SerializeField] AudioSource speaker;
 
 	[SerializeField] Animator beachAnim;
@@ -193,6 +193,9 @@ public class Body : MonoBehaviour {
 	}
 
 	public void GameOver() {
+		if (!isPlaying)
+			return;
+		
 		isPlaying = false;
 		foreach (var c in exercise.Channels) {
 			c.autoPlay = true;
@@ -202,11 +205,13 @@ public class Body : MonoBehaviour {
 
 		beachAnim.SetTrigger ("Beach");
 
-		speaker.Play ();
-
+		speaker.clip = outroMusic;
+		speaker.loop = true;
+		speaker.Play();
+		/*
 		foreach (var t in exercise.Tracks) {
 			t.beating = true;
-		}
+		}*/
 
 
 		Debug.Log ("Nothing more to improve");
