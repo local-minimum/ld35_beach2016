@@ -19,6 +19,11 @@ public class ShapeShiftingPart : MonoBehaviour {
 	public int editShape = 0;
 
 	public float shiftChance = 2;
+
+	void Update() {
+		if (Random.value < Time.deltaTime * shiftChance)
+			RandomShift ();
+	}
 	#endif
 
 	void Reset() {
@@ -37,11 +42,6 @@ public class ShapeShiftingPart : MonoBehaviour {
 
 	public void RandomShift() {
 		Shift (Random.Range (0, startShapes));
-	}
-
-	void Update() {
-		if (Random.value < Time.deltaTime * shiftChance)
-			RandomShift ();
 	}
 
 	void OnEnable() {
