@@ -10,7 +10,7 @@ public class BodyPartProgressUI : MonoBehaviour {
 	[SerializeField] Image bodyPartIcon;
 
 	[SerializeField] Sprite[] bodyPartIcons;
-
+	[SerializeField] int[] xScales;
 	[SerializeField] Sprite[] idealIcons;
 
 	[SerializeField] Body body;
@@ -36,6 +36,9 @@ public class BodyPartProgressUI : MonoBehaviour {
 			panelImage.color = hiddenColor;
 		} else {
 			bodyPartIcon.sprite = bodyPartIcons [part];
+			var scale = Vector3.one;
+			scale.x = xScales [part];
+			bodyPartIcon.transform.localScale = scale;
 			idealIcon.sprite = idealIcons [body.GetPathSelected(part) - 1];
 
 			var curLvl = body.CurrentLevel (part);
